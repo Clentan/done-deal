@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+ <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+ <link rel="stylesheet" href="https://stackpath.bootstapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>Frontend Mentor | Sunnyside agency landing page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    h6 {
+      font-size: 18px;
+    }
+
+    .wrapper {
+      display: inline-flex;
+    }
+    .wrapper .icon {
+      margin: -5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+      flex-direction: column ;
+      justify-content: center;
+      position: relative;
+    }
+    .wrapper .icon span {
+      height: 0px;
+      width: 60px;
+      display: block;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .wrapper .icon span i {
+      font-size: 25px;
+      line-height: 60px;   
+    }
+    .wrapper .icon .tooltip {
+      background: #fff;
+      font-size: 20px;
+      padding: 10px 18px;
+      box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+      top: 0px;
+      border-radius: 25px;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.68,-0.55,0.265,1.55);
+      color: #1437c4;
+    }
+    .wrapper .icon:hover .tooltip {
+      top: -70px;
+      opacity: 1;
+      pointer-events: auto;
+
+
+    }
+    .wrapper .icon .tooltip::before {
+      position: absolute;
+      content: "";
+      height: 15px;
+      width: 15px;
+      background: rgb(249, 246, 246);
+      bottom: -8px;
+      left: 50%;
+      transform: translate(-50%)rotate(45deg);
+
+    }
+    .wrapper .icon:hover span,
+    .wrapper .icon:hover .tooltip{
+      text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+    }
+    .wrapper .facebook:hover span,
+    .wrapper .facebook:hover .tooltip,
+    .wrapper .facebook:hover .tooltip::before {
+      background: #eef1f7;
+
+    }
+    .wrapper .icon:hover span i {
+      color: #fff;
+    }
+    .attribution { font-size: 11px; text-align: center; 
+    }
+    .one {
+      background-image: url(images/desktop/image-header.jpg);
+      background-size: cover;
+      background-position: center;
+      height: 700px;
+      width: 100%;}
+      
+      .two {
+        width: 100%;
+        height: auto;}
+      .first {
+        float: inline-start;
+        
+        padding: 30px;
+      }
+      h1 {
+       
+        font-size: 18px;
+        color:  hsl(0, 0%, 100%);
+        transition: 0.4s;
+      }
+      h4:hover {
+        background-color: hsla(0, 0%, 100%, 0.193);
+        border-radius: 7px;
+        color: aliceblue;
+      }
+      h4 {
+        font-size: 18px;
+        background-color:  aliceblue;
+        border-radius: 6px;
+      
+      }
+      h3 { font-size: 30px;
+        color:  hsl(0, 0%, 100%);
+      }
+      .half {
+        background-image: url(images/desktop/image-transform.jpg);
+        background-size: cover;
+        height: 600px;
+        padding-top: 1px;
+      }
+      .table2 {
+     margin-top: 248px;
+     margin-left: 2.5px
+      }
+      h2 {
+        font-weight: 20px bold;
+      }
+      .stand {
+        background-image: url(images/desktop/image-stand-out.jpg);
+        background-size: cover;
+        height: 600px;
+        width: 733px;
+        padding-top: 1px;
+      margin-top: -2px}
+      .all {
+        display: flex;
+        justify-content:flex-start;
+      }
+      .pep {
+        margin-top: -200PX;
+        margin-left: 250px;
+        font-family: "Fraunces", serif;
+         font-optical-sizing: auto;
+          font-weight: 900px;
+        font-style: normal;
+         font-variation-settings:
+        "SOFT" 0,
+         "WONK" 0;
+      }
+      p {
+        margin-top: -40PX;
+        margin-left: 200px;
+        font-size: 18px;
+      }
+    .border {
+      margin-top: 50px;
+    }
+    .ayi {
+      border: 0px solid;
+      border-radius: 80px;
+    }
+  .client {
+    color: hsl(232, 10%, 55%);
+    font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 900px;
+  font-style: normal;
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 0;
+  }
+  .row {
+    display: flex;
+    margin-top: 80px;
+    background-color:  hsla(168, 34%, 41%, 0.589)
+  }
+  .color {
+    background-color: hsla(168, 34%, 41%, 0.589);
+    height: 300px; 
+  }
+    u {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      text-decoration-color: hsl(168, 34%, 41%);
+    }
+    h5:hover{
+      border-radius: 7px;
+        color: aliceblue;
+      }
+    }
+    h5 {
+      color: hsl(165, 33%, 5%);
+      font-weight: 18px;
+      font-optical-sizing: auto;
+  font-weight: 900px;
+  font-style: normal;
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 0;
+    }
+    .logo {
+      color: hsl(168, 34%, 41%);
+      
+    }
+    img {color: hsl(168, 34%, 41%);}
+    /*written text*/
+.box {
+
+  height: 300px;
+  width: 350px;
+  margin-top:200px;
+  margin-left: 900px;
+  float: left;}
+
+
+.box1 {
+  border: none;
+  height: 500px;
+  width: 500px;
+ margin: 100px;
+  margin-top: -900px;
+float: left;
+}
+pre {
+  font-size: 17px;
+  color: hsl(232, 10%, 55%);
+}
+.link,.links {
+  text-transform: uppercase;
+  font-weight:bolder;
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 900px;
+  font-style: normal;
+  font-variation-settings:
+    "SOFT" 0,
+    "WONK" 0;
+    text-decoration: none;
+    color: black;
+}
+.links:hover {
+  text-decoration:hsl(51, 100%, 49%) underline 5px;
+  border-radius: 3px ;
+  text-decoration: ;
+}
+.link:hover {
+  text-decoration:hsl(7, 99%, 70%) underline 5px;
+  border-radius: 3px ;
+  text-decoration: ;
+}
+link:hover {
+  text-decoration:hsl(7, 99%, 70%) underline 5px;
+}
+a {
+        text-decoration:none;
+        color: black;
+    
+     }
+     .footer {
+      display: flex;
+      justify-content: center;
+      padding: -200px;
+      margin-top: -120px;
+     }
+     .facebook {
+      margin-right: 0px;
+     }
+     .instagram {
+      margin-right: 0px;
+     }
+     .twitter {
+      margin-right: 0px;
+     }
+     .facebook:hover {
+      background: white;
+     }
+     .facebook:hover image{
+      color: aliceblue;
+     }
+  </style>
+  </style>
+  </style>
+</head>
+<body >
+  
+  
+  <div class="one">
+<table border="0" width="100%">
+  <tr class="two" width="100$">
+    <th class="first" width="70%" align="left"><img src="images/logo.svg" width="120px"></th>
+    <th width="7%">
+      <a href="aboutus.html">
+      <script >
+        document.write('<h1>About</h1>');
+         </script>
+      </a>
+    </th>
+    <th width="7%">
+      <a href="service.html">
+      <script >
+        document.write('<h1>Service</h1>');
+         </script>
+      </a>
+    </th>
+    <th width="7%%">
+    
+      <script >
+        document.write('<h1>Project</h1>');
+         </script>
+    </th>
+    <th width="7%">
+    <a href="contact.html">
+   
+      <script >
+        document.write('<h4 >Contact</h4>');
+         </script>
+         </a>
+    </th>
+  </tr>
+</table>
+<div align="center">
+<script >
+  document.write('<h3 class="hey">WE ARE CREATIVE</h3>');
+   </script>
+   </div>
+   <div class="seven" align="center">
+    <br><br><br><br><br><br><br>
+<img src="images/icon-arrow-down.svg" class="logo"><br><br>
+   </div>
+   <table width="100%" border="0" class="table2">
+    <tr with="100%">
+     
+      <th width="50%">
+        
+      </th>
+      <th width="50%" class="half">  </th>
+    </tr>
+  
+  </table><div class="box"><script>document.write('<h2>Stand out to the <br> right audience</h2><pre>Using a collaborative formula of designers, researchers,<br>photographers, videographers, and copywriters, we’ll<br>build and extend your brand in digital places.</pre><br><br>')</script>
+    <a href="learnmore1.html" class="link">LEARN MORE</a>
+  </div>
+  <div class="box1"><script >
+    document.write('<h2 >Tranform  your<br> brand</h2>');
+     </script>
+      
+     <script >
+      document.write('<pre>We are a full-service creative agency specializing in<br>helping brands grow fast.Engage your clients through<br>compelling visuals that do most of the marketing for you. </pre><br><br>'); 
+      </script>
+  <a href="learnmore1.html" class="links">learn more</a>
+  </div>
+    
+  <div class="stand">
+  
+&nbsp;
+  </div>
+  <div class="all">
+    <div class="orange" width="50%" ><img src="images/desktop/image-graphic-design.jpg" width="733px">
+    <script> document.write('<h2 class="pep">Graphic Design</h2> <br><br><p>Great design makes you memorable. We deliver<br>artwork that underscores your brand message<br>and captures potential clients’ attention.<p>');</script></div>
+     
+    <div class="barri" width-50%><img src="images/desktop/image-photography.jpg" width="727px" height="610">
+      <script> document.write('<h2 class="pep">Photography</h2> <br><br><p>Increase your credibility by getting the most<br>stunning, high-quality photos that improve your<br>business image.<p>');</script>
+     </div>
+ 
+  </div>
+ <table class="border" border="0" width="100%" >
+    <tr>
+      <th "></th>
+      <th height="200" class="client">CLIENT TESTIMONIALS</th><!--java mut be used here-->
+      <th></th>
+    </tr>
+    <tr  width="100%" ">
+      <th width="33" height="400" ><img src="images/image-emily.jpg" class="ayi" ><script >
+        document.write('<pre>We put our trust in Sunnyside and they <br>delivered, making sure our needs were met<br>and deadlines were always hit</pre>');
+         </script>
+         <script >
+          document.write('<h6>Emily R.</h6>');
+          document.write('<h7>Marketing Director</h7>');
+           </script></th>
+   <th width="33" ><img src="images/image-thomas.jpg" class="ayi">
+    <script >
+      document.write('<pre>Sunnyside’s enthusiasm coupled with their <br> keen interest in our brand’s success made it<br>a satisfying and enjoyable experience.</pre>');
+       </script>
+       <script >
+        document.write('<h6>Thomas S.</h6>');
+        document.write('<h7>Chief Operating Officer</h7>');
+         </script></th>
+           <th width="33" ><img src="images/image-jennie.jpg" class="ayi">
+        <script >
+          document.write('<pre>Sunnyside’s enthusiasm coupled with their <br> keen interest in our brand’s success made it<br>a satisfying and enjoyable experience.</pre>');
+           </script>
+           <script >
+            document.write('<h6>Jennie F.</h6>');
+            document.write('<h7>Business Owner</h7>');
+             </script></th>
+    </tr> </table> <div class="move"></div>
+ 
+   <div class="row">
+    <div><img src="images/desktop/image-gallery-milkbottles.jpg" with="100%" height="500"></div>
+    <div><img src="images/desktop/image-gallery-orange.jpg" width="=100%" height="500"></div>
+    <div><img src="images/desktop/image-gallery-cone.jpg" width="100%" height="500"></div>
+    <div><img src="images/desktop/image-gallery-sugarcubes.jpg" width="100%" height="500"></div>
+    
+   </div>
+  
+   <div class="color" align="center">
+<br><br><br>
+
+    <img src="images/logo.svg" alt="logo" style="filter: invert(50%) sepia(18%) saturate(898%) hue-rotate(118deg) brightness(94%) contrast(93%)"><br>
+    <u style="color: ;">
+    <script >
+      document.write('<h5>About</h5>');
+       </script>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="service.html">
+        <a href="service.html">
+          <script >
+            document.write('<h5>Service</h5>');
+             </script>
+          </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <script >
+          document.write('<h5>Project</h5>');
+           </script>
+   </u>   
+   <div class="wrapper">
+    <div class="icon facebook">
+     <div class="tooltip">facebook</div>
+     <span><i class="fa fa-facebook-f"></i></span>
+    </div>
+  
+  <div class="icon instagram">
+     <div class="tooltip">instagram</div>
+     <span><i class="fa fa-instagram"></i></span>
+    </div>
+    <div class="icon twitter">
+     <div class="tooltip">
+      
+      twitter</div>
+      <a href="https://twitter.com/?lang=en-za">
+     <span><i class="fa fa-twitter"></i></span></a>
+    </div>
+    <div class="icon pinterest">
+     <div class="tooltip">pinterest</div>
+     <span><i class="fa fa-pinterest"></i></span>
+    </div>
+  </div>
+ </div>
+   
+</div>
+</body>
+
+</html>
+
+<!-- Source Frontend Mentor: https://www.frontendmentor.io -->
